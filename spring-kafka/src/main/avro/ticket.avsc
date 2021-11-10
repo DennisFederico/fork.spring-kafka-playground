@@ -1,0 +1,642 @@
+﻿{
+  "name": "TicketMessage",
+  "type": "record",
+  "namespace": "org.github.ogomezso.springkafka.infrastructure.model.ticket",
+  "fields": [
+    {
+      "name": "companyId",
+      "type": "string"
+    },
+    {
+      "name": "identity",
+      "type": {
+        "name": "Identity",
+        "type": "record",
+        "fields": [
+          {
+            "name": "ticketDate",
+            "type": "string"
+          },
+          {
+            "name": "storePublicId",
+            "type": "string"
+          },
+          {
+            "name": "ticketNumber",
+            "type": "string"
+          },
+          {
+            "name": "posId",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "header",
+      "type": {
+        "name": "Header",
+        "type": "record",
+        "fields": [
+          {
+            "name": "invoiceDuration",
+            "type": "int"
+          },
+          {
+            "name": "paymentDuration",
+            "type": "int"
+          },
+          {
+            "name": "employeeId",
+            "type": "string"
+          },
+          {
+            "name": "ticketHour",
+            "type": "int"
+          },
+          {
+            "name": "totalTicketAmount",
+            "type": "string"
+          },
+          {
+            "name": "ticketTypeId",
+            "type": "string"
+          },
+          {
+            "name": "OriginStoreTicket",
+            "type": {
+              "name": "OriginStoreTicket",
+              "type": "record",
+              "fields": [
+                {
+                  "name": "ticketDate",
+                  "type": "string"
+                },
+                {
+                  "name": "storePublicId",
+                  "type": "string"
+                },
+                {
+                  "name": "ticketNumber",
+                  "type": "string"
+                },
+                {
+                  "name": "posId",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "returnStoreTicket",
+            "type": {
+              "name": "ReturnStoreTicket",
+              "type": "record",
+              "fields": [
+                {
+                  "name": "ticketDate",
+                  "type": "string"
+                },
+                {
+                  "name": "storePublicId",
+                  "type": "string"
+                },
+                {
+                  "name": "ticketNumber",
+                  "type": "string"
+                },
+                {
+                  "name": "posId",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "deliveryNotePosId",
+            "type": "string"
+          },
+          {
+            "name": "deliveryNoteNumber",
+            "type": "string"
+          },
+          {
+            "name": "deliveryNoteDate",
+            "type": "string"
+          },
+          {
+            "name": "teleSalesOrderNumber",
+            "type": "string"
+          },
+          {
+            "name": "isParked",
+            "type": "boolean"
+          },
+          {
+            "name": "transactionTypeId",
+            "type": "string"
+          },
+          {
+            "name": "salesChannelId",
+            "type": "string"
+          },
+          {
+            "name": "storeTypeId",
+            "type": "string"
+          },
+          {
+            "name": "storeAddress",
+            "type": "string"
+          },
+          {
+            "name": "storeZipCode",
+            "type": "string"
+          },
+          {
+            "name": "storeCity",
+            "type": "string"
+          },
+          {
+            "name": "storePhone",
+            "type": "string"
+          },
+          {
+            "name": "barcode",
+            "type": "string"
+          },
+          {
+            "name": "certificationCode",
+            "type": "string"
+          },
+          {
+            "name": "isDigitalTicket",
+            "type": "boolean"
+          },
+          {
+            "name": "companyName",
+            "type": "string"
+          },
+          {
+            "name": "companyVatNumber",
+            "type": "string"
+          },
+          {
+            "name": "locale",
+            "type": "string"
+          },
+          {
+            "name": "encodedCustomerId",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "invoice",
+      "type": {
+        "name": "Invoice",
+        "type": "record",
+        "fields": [
+          {
+            "name": "invoiceHandOverTypeId",
+            "type": "string"
+          },
+          {
+            "name": "vatNumber",
+            "type": "string"
+          },
+          {
+            "name": "branchOfficeId",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "lines",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "LinesRecord",
+          "type": "record",
+          "fields": [
+            {
+              "name": "lineNumber",
+              "type": "int"
+            },
+            {
+              "name": "typeOfLine",
+              "type": "string"
+            },
+            {
+              "name": "gtin",
+              "type": "string"
+            },
+            {
+              "name": "productPublicId",
+              "type": "string"
+            },
+            {
+              "name": "productDenomination",
+              "type": "string"
+            },
+            {
+              "name": "quantity",
+              "type": "int"
+            },
+            {
+              "name": "pvp",
+              "type": "string"
+            },
+            {
+              "name": "sectionId",
+              "type": "string"
+            },
+            {
+              "name": "lineAmount",
+              "type": "string"
+            },
+            {
+              "name": "introductionMethod",
+              "type": "string"
+            },
+            {
+              "name": "auxiliarBarcode",
+              "type": "string"
+            },
+            {
+              "name": "unknownProductPublicId",
+              "type": "string"
+            },
+            {
+              "name": "grossPvp",
+              "type": "string"
+            },
+            {
+              "name": "transactionLineTypeId",
+              "type": "string"
+            },
+            {
+              "name": "isVatSplitted",
+              "type": "boolean"
+            },
+            {
+              "name": "saleTypeScale",
+              "type": "string"
+            },
+            {
+              "name": "ticketLineTax",
+              "type": {
+                "name": "TicketLineTax",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "taxClass",
+                    "type": "string"
+                  },
+                  {
+                    "name": "taxType",
+                    "type": "string"
+                  },
+                  {
+                    "name": "taxRate",
+                    "type": "string"
+                  },
+                  {
+                    "name": "taxBase",
+                    "type": "string"
+                  },
+                  {
+                    "name": "taxCharge",
+                    "type": "string"
+                  },
+                  {
+                    "name": "isTaxIncluded",
+                    "type": "boolean"
+                  },
+                  {
+                    "name": "vatLetter",
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "typeOfTicketLine",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "paymentMethodCash",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "PaymentMethodCashRecord",
+          "type": "record",
+          "fields": [
+            {
+              "name": "cashPayment",
+              "type": {
+                "name": "CashPayment",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "paymentMethodId",
+                    "type": "string"
+                  },
+                  {
+                    "name": "paymentMethodAmount",
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "isPendingCash",
+              "type": "boolean"
+            },
+            {
+              "name": "isCancelled",
+              "type": "boolean"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "paymentMethodCreditCard",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "PaymentMethodCreditCardRecord",
+          "type": "record",
+          "fields": [
+            {
+              "name": "cardPayment",
+              "type": {
+                "name": "CardPayment",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "paymentMethodId",
+                    "type": "string"
+                  },
+                  {
+                    "name": "paymentMethodAmount",
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "creditCardId",
+              "type": "string"
+            },
+            {
+              "name": "expirationDate",
+              "type": "string"
+            },
+            {
+              "name": "introductionMethodCard",
+              "type": "string"
+            },
+            {
+              "name": "isSigned",
+              "type": "boolean"
+            },
+            {
+              "name": "token",
+              "type": "string"
+            },
+            {
+              "name": "pinpadId",
+              "type": "string"
+            },
+            {
+              "name": "period",
+              "type": "string"
+            },
+            {
+              "name": "operationNumber",
+              "type": "string"
+            },
+            {
+              "name": "isCancelled",
+              "type": "boolean"
+            },
+            {
+              "name": "receipt",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "paymentMethodbankTransfer",
+      "type": {
+        "name": "PaymentMethodbankTransfer",
+        "type": "record",
+        "fields": [
+          {
+            "name": "transferPayment",
+            "type": {
+              "name": "TransferPayment",
+              "type": "record",
+              "fields": [
+                {
+                  "name": "paymentMethodId",
+                  "type": "string"
+                },
+                {
+                  "name": "paymentMethodAmount",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "authorizedNif",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "paymentMethodCoupon",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "PaymentMethodCouponRecord",
+          "type": "record",
+          "fields": [
+            {
+              "name": "couponPayment",
+              "type": {
+                "name": "CouponPayment",
+                "type": "record",
+                "fields": [
+                  {
+                    "name": "paymentMethodId",
+                    "type": "string"
+                  },
+                  {
+                    "name": "paymentMethodAmount",
+                    "type": "string"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "couponBarcode",
+              "type": "string"
+            },
+            {
+              "name": "articleGtin",
+              "type": "string"
+            },
+            {
+              "name": "forced",
+              "type": "int"
+            },
+            {
+              "name": "couponIntroductionMethod",
+              "type": "string"
+            },
+            {
+              "name": "couponDescription",
+              "type": "string"
+            },
+            {
+              "name": "articleDescription",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "totalTax",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "TotalTaxRecord",
+          "type": "record",
+          "fields": [
+            {
+              "name": "taxClass",
+              "type": "string"
+            },
+            {
+              "name": "taxType",
+              "type": "string"
+            },
+            {
+              "name": "taxRate",
+              "type": "string"
+            },
+            {
+              "name": "taxBase",
+              "type": "string"
+            },
+            {
+              "name": "taxCharge",
+              "type": "string"
+            },
+            {
+              "name": "isTaxIncluded",
+              "type": "boolean"
+            },
+            {
+              "name": "vatLetter",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "scale",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "ScaleRecord",
+          "type": "record",
+          "fields": [
+            {
+              "name": "lineNumberScale",
+              "type": "string"
+            },
+            {
+              "name": "scaleDate",
+              "type": "string"
+            },
+            {
+              "name": "scaleHour",
+              "type": "string"
+            },
+            {
+              "name": "scaleId",
+              "type": "string"
+            },
+            {
+              "name": "groupId",
+              "type": "string"
+            },
+            {
+              "name": "scaleTicketId",
+              "type": "string"
+            },
+            {
+              "name": "scaleOperatorId",
+              "type": "string"
+            },
+            {
+              "name": "scaleAmount",
+              "type": "string"
+            },
+            {
+              "name": "scaleTicketType",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "parkedLines",
+      "type": {
+        "type": "array",
+        "items": {
+          "name": "ParkedLinesRecord",
+          "type": "record",
+          "fields": [
+            {
+              "name": "employeeId",
+              "type": "string"
+            },
+            {
+              "name": "parkedTime",
+              "type": "string"
+            },
+            {
+              "name": "parkedType",
+              "type": "string"
+            },
+            {
+              "name": "lineNumber",
+              "type": "int"
+            },
+            {
+              "name": "amountLine",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
