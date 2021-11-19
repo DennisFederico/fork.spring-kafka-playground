@@ -1,9 +1,7 @@
 server:
   port: 28080
-kafka:
-  bootstrap-servers: localhost:9092
-  chuck-client-id: chuck-producer
-  ticket-client-id: ticket-producer
-  chuck-topic: chuck-spring-topic
-  ticket-topic: tickets-spring-topic
-  schema-registry-url: http://localhost:8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

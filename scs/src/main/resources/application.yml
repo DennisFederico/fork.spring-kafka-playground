@@ -1,10 +1,12 @@
 server:
   port: 18080
 spring:
+  jmx:
+    enabled: true
   cloud:
     stream:
       function:
-        definition: chuckProcessor,ticketProcessor
+        definition: chuckProcessor;ticketProcessor
       bindings:
         chuckProcessor-out-0:
           binder: kafka
@@ -18,34 +20,8 @@ spring:
           producer:
             userNativeEncoding: true
       default-binder: kafka
-      kafka:
-        binder:
-          brokers: localhost:9092
-          producer-properties:
-            key.serializer: org.apache.kafka.common.serialization.StringSerializer
-            value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-            schema.registry.url: http://localhost:8081
-          consumer-properties:
-            key.serializer: org.apache.kafka.common.serialization.StringSerializer
-            value.serializer: io.confluent.kafka.serializers.KafkaAvrDeserializer
-            schema.registry.url: http://localhost:8081
-            specific.avro.reader: true
-        bindings:
-          chuckProcessor-out-0:
-            binder: kafka
-            destination: chuck
-            producer:
-              useNativeEncoding: true
-              configuration:
-                key.serializer: org.apache.kafka.common.serialization.StringSerializer
-                value.serializer: org.apache.kafka.common.serialization.StringSerializer
-          ticketProcessor-out-0:
-            binder: kafka
-            destination: tickets
-            content-type: application/*+avro
-            producer:
-              userNativeEncoding: true
-              configuration:
-                key.serializer: org.apache.kafka.common.serialization.StringSerializer
-                value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-                schema.registry.url: http://localhost:8081
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -17,11 +17,26 @@
   <properties>
     <java.version>11</java.version>
     <avro.version>1.11.0</avro.version>
+    <micrometer.version>1.8.0</micrometer.version>
   </properties>
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-core</artifactId>
+      <version>${micrometer.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.micrometer</groupId>
+      <artifactId>micrometer-registry-prometheus</artifactId>
+      <version>${micrometer.version}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework.kafka</groupId>
@@ -52,7 +67,6 @@
       <artifactId>avro-ipc</artifactId>
       <version>${avro.version}</version>
     </dependency>
-
     <dependency>
       <groupId>io.confluent</groupId>
       <artifactId>kafka-avro-serializer</artifactId>
